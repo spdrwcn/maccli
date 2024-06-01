@@ -1,0 +1,24 @@
+[package]
+name = "maccli"
+version = "1.0.0"
+edition = "2021"
+
+
+[dependencies]
+simple_redis = "0.6.3"
+clap = "2.33"
+serde_json = "1.0.116"
+regex = "1.10.4"
+fast_qr = "0.12.5"
+prettytable-rs = "0.10.0"
+qrcode = "0.14.0"
+mac_conditions = "1.0.0"
+systemd_info = "1.0.0"
+
+[profile.release]
+strip = true 
+opt-level = 3
+lto = true
+
+[target.x86_64-pc-windows-gun]
+rustflags = ["-C", "target-feature=+crt-static"]
